@@ -529,7 +529,11 @@ var Parser = Object.extend({
         var node;
 
         if(tok.type !== lexer.TOKEN_SYMBOL) {
-            this.fail('tag name expected', tok.lineno, tok.colno);
+            //I dont care tags, just wanna generate
+            return node;
+            //console.log('this.tokens',this.tokens);
+            this.fail('tag name expected [type:'+tok.type+'][value:'+tok.value+'][line:'+tok.lineno+'][col:'+tok.colno+']', tok.lineno, tok.colno);
+            //this.fail('tag name expected', tok.lineno, tok.colno);
         }
 
         if(this.breakOnBlocks &&
